@@ -1,5 +1,5 @@
 ublue_variants:
-  - label: blue-build/template
+  - label: dpendolino/my-ublue
     ks: /kickstart/ublue-os.ks
     flavors:
-      - label: blue-build/template
+      - label: my-ublue
