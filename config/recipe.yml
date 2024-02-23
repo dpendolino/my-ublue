@@ -40,7 +40,7 @@ modules:
       install:
         - org.mozilla.firefox
         - io.github.dvlv.boxbuddyrs
-        - md.obsidian.obsidian
+        - md.obsidian.Obsidian
         - com.google.Chrome
         - com.discordapp.Discord
         - org.signal.Signal
