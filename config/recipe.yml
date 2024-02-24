@@ -26,7 +26,7 @@ modules:
       - fish
       - kitty
       - micro
-      - mullvad-vpn
+      # - mullvad-vpn
       - neovim
       - starship
     remove:
