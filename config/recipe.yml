@@ -64,4 +64,26 @@ modules:
       remove:
         # - org.gnome.eog
 
+  - type: fonts
+    fonts:
+      nerd-fonts:
+        - FiraCode # don't add "Nerd Font" suffix.
+        - Hack
+        - SourceCodePro
+        - Terminus
+        - JetBrainsMono
+        - NerdFontsSymbolsOnly
+      google-fonts:
+        - Roboto
+        - Open Sans
+
+  - type: yafti
+    custom-flatpaks:
+      - Celluloid: io.github.celluloid_player.Celluloid
+      - Krita: org.kde.krita
+
+  - type: script
+    scripts:
+      - example.sh # will run config/scripts/myscript.sh
+
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
