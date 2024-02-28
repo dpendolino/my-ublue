@@ -6,6 +6,10 @@
 set -oue pipefail
 
 # Your code goes here.
+if [ ! -d /usr/local/bin ]; then
+  mkdir /usr/local/bin
+fi
+
 if [ -f "$(which nvim)" ]; then
   ln -s "$(which nvim)" "/usr/local/bin/vim"
 fi
