@@ -57,6 +57,8 @@ modules:
         - org.mozilla.firefox
         - org.signal.Signal
         - org.gnome.Loupe
+        - com.github.xournalpp.xournalpp
+        - org.gimp.GIMP
         # - one.ablaze.floorp//lightning # This is an example of flatpak which has multiple branches in selection (flatpak//branch).
         # Flatpak runtimes are not supported (like org.winehq.Wine//stable-23.08),
         # only normal flatpak applications are (like Floorp Lightning web browser in this example).
