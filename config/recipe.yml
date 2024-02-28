@@ -59,6 +59,7 @@ modules:
         - org.gnome.Loupe
         - com.github.xournalpp.xournalpp
         - org.gimp.GIMP
+        - org.videolan.VLC
         # - one.ablaze.floorp//lightning # This is an example of flatpak which has multiple branches in selection (flatpak//branch).
         # Flatpak runtimes are not supported (like org.winehq.Wine//stable-23.08),
         # only normal flatpak applications are (like Floorp Lightning web browser in this example).
@@ -86,6 +87,6 @@ modules:
 
   - type: script
     scripts:
-      - example.sh # will run config/scripts/myscript.sh
+      - neovim-symlinks.sh
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
