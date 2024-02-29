@@ -1,5 +1,5 @@
 ---
-# build date: 2024-02-29 16:26
+# build date: 2024-02-29 18:56
 ublue_variants:
   - label: dpendolino/my-ublue
     ks: /kickstart/ublue-os.ks
