@@ -1,7 +1,7 @@
 ---
-# build date: 2024-03-06 08:37
+# build date: 2024-03-06 10:31
 ublue_variants:
-  - label: dpendolino/my-ublue-sway
+  - label: dpendolino/my-ublue-sericea
     ks: /kickstart/ublue-os.ks
     flavors:
-      - label: my-ublue-sway
+      - label: my-ublue-sericea
