@@ -25,6 +25,7 @@ jobs:
           - recipe.yml
           - recipe-sericea.yml
           - recipe-silverblue.yml
+          - recipe-cosmic.yml
 
     steps:
        # the build is fully handled by the reusable github action
