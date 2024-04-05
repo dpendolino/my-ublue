@@ -13,3 +13,7 @@ ublue_variants:
     ks: /kickstart/ublue-os.ks
     flavors:
       - label: my-ublue-silverblue
+  - label: dpendolino/my-ublue-cosmic
+    ks: /kickstart/ublue-os.ks
+    flavors:
+      - label: my-ublue-cosmic
