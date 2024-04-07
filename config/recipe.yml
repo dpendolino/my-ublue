@@ -76,6 +76,10 @@ modules:
       remove:
         # - org.gnome.eog
 
+  - type: gschema-overrides
+    include:
+      - zz1-myoverride.gschema.override # test & compile the override file included in config/gschema-overrides/zz1-myoverride.gschema.override
+
   - type: fonts
     fonts:
       nerd-fonts:
