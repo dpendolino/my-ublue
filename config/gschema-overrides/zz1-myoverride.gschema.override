@@ -1,5 +1,11 @@
-[org.gnome.desktop.interface]
-gtk-theme=Adwaita-dark
+[org.gnome.desktop.peripherals.touchpad]
+tap-to-click=true
 
-[org.gnome.desktop.interface]
-color-scheme='prefer-dark'
+[org.gnome.settings-daemon.plugins.power]
+power-button-action='interactive'
+
+[org.gnome.mutter]
+check-alive-timeout=uint32 20000
+
+[org.gnome.shell.extensions.blur-my-shell]
+sigma=5
