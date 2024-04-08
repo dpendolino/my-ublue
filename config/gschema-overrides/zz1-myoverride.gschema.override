@@ -9,3 +9,6 @@ check-alive-timeout=uint32 20000
 
 [org.gnome.shell.extensions.blur-my-shell]
 sigma=5
+
+[org.gnome.desktop.interface]
+color-scheme='prefer-dark'
