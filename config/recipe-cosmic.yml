@@ -28,7 +28,6 @@ modules:
       - espanso-wayland
       - fish
       - git
-      - gnome-shell-extension-pop-shell
       - kitty
       - micro
       - neovim
