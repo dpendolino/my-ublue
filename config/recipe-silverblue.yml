@@ -33,6 +33,7 @@ modules:
       - kitty
       - micro
       - neovim
+      - openssl-devel
       - rust
       - snapper
       - starship
@@ -66,6 +67,7 @@ modules:
         - org.gimp.GIMP
         - org.gnome.Boxes
         - org.gnome.Loupe
+        - org.gnome.seahorse.Application
         - org.mozilla.firefox
         - org.signal.Signal
         - org.videolan.VLC

@@ -25,6 +25,7 @@ modules:
       - https://copr.fedorainfracloud.org/coprs/eclipseo/espanso/repo/fedora-%OS_VERSION%/eclipseo-espanso-fedora-%OS_VERSION%.repo
     install:
       - btrfs-assistant
+      - cargo
       - espanso-wayland
       - fish
       - git
@@ -32,6 +33,8 @@ modules:
       - kitty
       - micro
       - neovim
+      - openssl-devel
+      - rust
       - snapper
       - starship
       - xprop

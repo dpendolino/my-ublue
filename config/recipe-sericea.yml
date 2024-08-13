@@ -33,6 +33,7 @@ modules:
       - kitty
       - micro
       - neovim
+      - openssl-devel
       - rust
       - snapper
       - starship
