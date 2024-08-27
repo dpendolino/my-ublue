@@ -29,6 +29,7 @@ modules:
       - espanso-wayland
       - fish
       - git
+      - grubby
       - kitty
       - micro
       - neovim

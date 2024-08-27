@@ -30,6 +30,7 @@ modules:
       - fish
       - git
       - gnome-shell-extension-pop-shell
+      - grubby
       - kitty
       - micro
       - neovim
