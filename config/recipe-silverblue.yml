@@ -27,6 +27,7 @@ modules:
       - btrfs-assistant
       - cargo
       - fish
+      - espanso-wayland
       - git
       - gnome-shell-extension-pop-shell
       - grubby

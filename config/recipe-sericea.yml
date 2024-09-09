@@ -26,6 +26,7 @@ modules:
     install:
       - btrfs-assistant
       - cargo
+      - espanso-wayland
       - fish
       - git
       - gnome-shell-extension-pop-shell
