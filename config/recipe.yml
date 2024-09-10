@@ -70,10 +70,11 @@ modules:
         - org.gnome.Boxes
         - org.gnome.Loupe
         - org.gnome.seahorse.Application
+        - org.gnome.seahorse.Application
+        - org.gnome.seahorse.Application
         - org.mozilla.firefox
         - org.signal.Signal
         - org.videolan.VLC
-        - org.gnome.seahorse.Application
         # Flatpak runtimes are not supported (like org.winehq.Wine//stable-23.08),
         # only normal flatpak applications are (like Floorp Lightning web browser in this example).
         # Installing different branches of the same Flatpak is not supported.
