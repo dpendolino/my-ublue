@@ -26,15 +26,18 @@ modules:
     install:
       - btrfs-assistant
       - cargo
-      - fish
       - espanso-wayland
+      - fish
       - git
       - gnome-shell-extension-pop-shell
+      - go
       - grubby
       - kitty
       - micro
+      - mullvad-vpn
       - neovim
       - openssl-devel
+      - perl
       - rust
       - snapper
       - starship
