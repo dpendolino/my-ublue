@@ -53,11 +53,9 @@ modules:
       install:
         - com.borgbase.Vorta
         - com.discordapp.Discord
-        - com.github.hluk.copyq
         - com.github.tchx84.Flatseal
         - com.github.xournalpp.xournalpp
         - com.google.Chrome
-        - com.nextcloud.desktopclient.nextcloud
         - com.transmissionbt.Transmission
         - com.valvesoftware.Steam
         - dev.deedles.Trayscale
@@ -67,7 +65,6 @@ modules:
         - md.obsidian.Obsidian
         - org.gimp.GIMP
         - org.gnome.Boxes
-        - org.gnome.Loupe
         - org.gnome.seahorse.Application
         - org.mozilla.firefox
         - org.signal.Signal
