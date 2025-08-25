@@ -1,11 +1,19 @@
 ---
-# build date: 2025-08-19 15:25
+# build date: 2025-08-25 14:01
 ublue_variants:
   - label: dpendolino/my-ublue
     ks: /kickstart/ublue-os.ks
     flavors:
       - label: my-ublue
-  # - label: dpendolino/my-ublue-silverblue
-  #   ks: /kickstart/ublue-os.ks
-  #   flavors:
-  #     - label: my-ublue-silverblue
+  - label: dpendolino/my-ublue-sericea
+    ks: /kickstart/ublue-os.ks
+    flavors:
+      - label: my-ublue-sericea
+  - label: dpendolino/my-ublue-silverblue
+    ks: /kickstart/ublue-os.ks
+    flavors:
+      - label: my-ublue-silverblue
+  - label: dpendolino/my-ublue-cosmic
+    ks: /kickstart/ublue-os.ks
+    flavors:
+      - label: my-ublue-cosmic

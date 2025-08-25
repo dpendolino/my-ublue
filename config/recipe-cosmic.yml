@@ -4,8 +4,8 @@ name: my-ublue-cosmic
 description: This is my personal OS image.
 
 # the base image to build on top of (FROM) and the version tag to use
-base-image: ghcr.io/ublue-os/cosmic-silverblue
-image-version: 40-amd64 # latest is also supported if you want new updates ASAP
+base-image: ghcr.io/ublue-os/cosmic-atomic-main
+image-version: latest # latest is also supported if you want new updates ASAP
 
 # module configuration, executed in order
 # you can include multiple instances of the same module
@@ -34,6 +34,7 @@ modules:
       - micro
       - neovim
       - openssl-devel
+      - perl
       - rust
       - snapper
       - starship
@@ -43,39 +44,34 @@ modules:
       - firefox-langpacks # langpacks needs to also be removed to prevent dependency problems
 
   - type: default-flatpaks
-    notify: true # Send notification after install/uninstall is finished (true/false)
-    system:
-      # If no repo information is specified, Flathub will be used by default
-      repo-url: https://dl.flathub.org/repo/flathub.flatpakrepo
-      repo-name: flathub
-      repo-title: "Flathub (system-wide)" # Optional; this sets the remote's user-facing name in graphical frontends like GNOME Software
-      install:
-        - com.borgbase.Vorta
-        - com.discordapp.Discord
-        - com.github.hluk.copyq
-        - com.github.tchx84.Flatseal
-        - com.github.xournalpp.xournalpp
-        - com.google.Chrome
-        - com.nextcloud.desktopclient.nextcloud
-        - com.transmissionbt.Transmission
-        - com.valvesoftware.Steam
-        - dev.deedles.Trayscale
-        - io.github.dvlv.boxbuddyrs
-        - io.github.pwr_solaar.solaar
-        - io.podman_desktop.PodmanDesktop
-        - md.obsidian.Obsidian
-        - org.gimp.GIMP
-        - org.gnome.Boxes
-        - org.gnome.Loupe
-        - org.mozilla.firefox
-        - org.signal.Signal
-        - org.videolan.VLC
-        # - one.ablaze.floorp//lightning # This is an example of flatpak which has multiple branches in selection (flatpak//branch).
-        # Flatpak runtimes are not supported (like org.winehq.Wine//stable-23.08),
-        # only normal flatpak applications are (like Floorp Lightning web browser in this example).
-        # Installing different branches of the same Flatpak is not supported.
-      remove:
-        # - org.gnome.eog
+    configurations:
+      - notify: true # Send notification after install/uninstall is finished (true/false)
+        scope: system
+        # If no repo information is specified, Flathub will be used by default
+        install: # system flatpaks we want all users to have and not remove
+          - com.borgbase.Vorta
+          - com.discordapp.Discord
+          - com.github.tchx84.Flatseal
+          - com.github.xournalpp.xournalpp
+          - com.google.Chrome
+          - com.transmissionbt.Transmission
+          - com.valvesoftware.Steam
+          - dev.deedles.Trayscale
+          - io.github.dvlv.boxbuddyrs
+          - io.github.pwr_solaar.solaar
+          - io.podman_desktop.PodmanDesktop
+          - md.obsidian.Obsidian
+          - org.gimp.GIMP
+          - org.gnome.Boxes
+          - org.gnome.seahorse.Application
+          - org.mozilla.firefox
+          - org.signal.Signal
+          - org.videolan.VLC
+      - scope: user # Also add Flathub user repo, but no user packages
+
+  - type: gschema-overrides
+    include:
+      - zz1-myoverride.gschema.override # test & compile the override file included in config/gschema-overrides/zz1-myoverride.gschema.override
 
   - type: fonts
     fonts:
