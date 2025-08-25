@@ -43,15 +43,17 @@ modules:
       - firefox-langpacks # langpacks needs to also be removed to prevent dependency problems
 
   - type: default-flatpaks
-    notify: true # Send notification after install/uninstall is finished (true/false)
-    system:
-      # If no repo information is specified, Flathub will be used by default
-      repo-url: https://dl.flathub.org/repo/flathub.flatpakrepo
-      repo-name: flathub
-      repo-title: "Flathub (system-wide)" # Optional; this sets the remote's user-facing name in graphical frontends like GNOME Software
-      install:
+    configurations:
+      - notify: true # Send notification after install/uninstall is finished (true/false)
+        scope: system
+        # If no repo information is specified, Flathub will be used by default
+        install: # system flatpaks we want all users to have and not remove
+          - org.mozilla.firefox
+          - org.gnome.Loupe
+      - scope: user # Also add Flathub user repo, but no user packages
+
         # - com.borgbase.Vorta
-        - com.discordapp.Discord
+        # - com.discordapp.Discord
         # - com.github.tchx84.Flatseal
         # - com.github.xournalpp.xournalpp
         # - com.google.Chrome
@@ -68,12 +70,9 @@ modules:
         # - org.mozilla.firefox
         # - org.signal.Signal
         # - org.videolan.VLC
-        # - one.ablaze.floorp//lightning # This is an example of flatpak which has multiple branches in selection (flatpak//branch).
         # Flatpak runtimes are not supported (like org.winehq.Wine//stable-23.08),
         # only normal flatpak applications are (like Floorp Lightning web browser in this example).
         # Installing different branches of the same Flatpak is not supported.
-      remove:
-        # - org.gnome.eog
 
   - type: fonts
     fonts:
@@ -88,11 +87,11 @@ modules:
         - Roboto
         - Open Sans
 
-  - type: yafti
-    custom-flatpaks:
-      - Celluloid: io.github.celluloid_player.Celluloid
-      - Krita: org.kde.krita
-
+  # - type: yafti
+  #   custom-flatpaks:
+  #     - Celluloid: io.github.celluloid_player.Celluloid
+  #     - Krita: org.kde.krita
+  #
   - type: script
     scripts:
       - espanso.sh

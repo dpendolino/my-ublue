@@ -69,8 +69,6 @@ modules:
         # - org.gimp.GIMP
         # - org.gnome.Boxes
         # - org.gnome.seahorse.Application
-        # - org.gnome.seahorse.Application
-        # - org.gnome.seahorse.Application
         # - org.mozilla.firefox
         # - org.signal.Signal
         # - org.videolan.VLC
