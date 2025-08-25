@@ -50,31 +50,25 @@ modules:
         scope: system
         # If no repo information is specified, Flathub will be used by default
         install: # system flatpaks we want all users to have and not remove
+          - com.borgbase.Vorta
+          - com.discordapp.Discord
+          - com.github.tchx84.Flatseal
+          - com.github.xournalpp.xournalpp
+          - com.google.Chrome
+          - com.transmissionbt.Transmission
+          - com.valvesoftware.Steam
+          - dev.deedles.Trayscale
+          - io.github.dvlv.boxbuddyrs
+          - io.github.pwr_solaar.solaar
+          - io.podman_desktop.PodmanDesktop
+          - md.obsidian.Obsidian
+          - org.gimp.GIMP
+          - org.gnome.Boxes
+          - org.gnome.seahorse.Application
           - org.mozilla.firefox
-          - org.gnome.Loupe
+          - org.signal.Signal
+          - org.videolan.VLC
       - scope: user # Also add Flathub user repo, but no user packages
-
-        # - com.borgbase.Vorta
-        # - com.discordapp.Discord
-        # - com.github.tchx84.Flatseal
-        # - com.github.xournalpp.xournalpp
-        # - com.google.Chrome
-        # - com.transmissionbt.Transmission
-        # - com.valvesoftware.Steam
-        # - dev.deedles.Trayscale
-        # - io.github.dvlv.boxbuddyrs
-        # - io.github.pwr_solaar.solaar
-        # - io.podman_desktop.PodmanDesktop
-        # - md.obsidian.Obsidian
-        # - org.gimp.GIMP
-        # - org.gnome.Boxes
-        # - org.gnome.seahorse.Application
-        # - org.mozilla.firefox
-        # - org.signal.Signal
-        # - org.videolan.VLC
-        # Flatpak runtimes are not supported (like org.winehq.Wine//stable-23.08),
-        # only normal flatpak applications are (like Floorp Lightning web browser in this example).
-        # Installing different branches of the same Flatpak is not supported.
 
   - type: gschema-overrides
     include:
