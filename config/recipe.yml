@@ -87,7 +87,7 @@ modules:
         - Roboto
         - Open Sans
 
-  - type: yafti
+  # - type: yafti
 
   - type: script
     scripts:
