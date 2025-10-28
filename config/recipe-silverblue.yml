@@ -81,7 +81,7 @@ modules:
         - Roboto
         - Open Sans
 
-  - type: yafti
+  # - type: yafti
     # custom-flatpaks:
     #   - Celluloid: io.github.celluloid_player.Celluloid
     #   - Krita: org.kde.krita
