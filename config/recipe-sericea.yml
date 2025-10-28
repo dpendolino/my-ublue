@@ -89,9 +89,9 @@ modules:
         - Open Sans
 
   - type: yafti
-    custom-flatpaks:
-      - Celluloid: io.github.celluloid_player.Celluloid
-      - Krita: org.kde.krita
+    # custom-flatpaks:
+    #   - Celluloid: io.github.celluloid_player.Celluloid
+    #   - Krita: org.kde.krita
 
   - type: script
     scripts:
