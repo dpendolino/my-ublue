@@ -83,8 +83,8 @@ modules:
 
   # - type: yafti
 
-  - type: script
-    scripts:
+  # - type: script
+  #   scripts:
       # - espanso.sh
       # - gnome-extensions.sh
 
