@@ -20,7 +20,6 @@ modules:
 
   - type: rpm-ostree
     repos:
-      - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/eclipseo/espanso/repo/fedora-%OS_VERSION%/eclipseo-espanso-fedora-%OS_VERSION%.repo
     install:
       - btrfs-assistant
@@ -28,7 +27,6 @@ modules:
       - espanso-wayland
       - fish
       - git
-      - gnome-shell-extension-pop-shell
       - go
       - grubby
       - kitty
@@ -38,7 +36,6 @@ modules:
       - perl
       - rust
       - snapper
-      - starship
       - xprop
     # remove:
     #   - firefox # default firefox removed in favor of flatpak
