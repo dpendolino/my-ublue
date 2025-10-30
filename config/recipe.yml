@@ -19,12 +19,9 @@ modules:
           # in /usr/etc/ in the image. read more in files module reference.
 
   - type: rpm-ostree
-    repos:
-      - https://copr.fedorainfracloud.org/coprs/eclipseo/espanso/repo/fedora-%OS_VERSION%/eclipseo-espanso-fedora-%OS_VERSION%.repo
     install:
       - btrfs-assistant
       - cargo
-      - espanso-wayland
       - fish
       - git
       - go
@@ -88,7 +85,7 @@ modules:
 
   - type: script
     scripts:
-      - espanso.sh
+      # - espanso.sh
       # - gnome-extensions.sh
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
