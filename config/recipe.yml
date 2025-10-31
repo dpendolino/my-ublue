@@ -21,19 +21,11 @@ modules:
   - type: rpm-ostree
     install:
       - btrfs-assistant
-      - cargo
       - fish
       - git
       - go
       - grubby
-      - kitty
-      - micro
-      - neovim
-      - openssl-devel
-      - perl
-      - rust
       - snapper
-      - xprop
     # remove:
     #   - firefox # default firefox removed in favor of flatpak
     #   - firefox-langpacks # langpacks needs to also be removed to prevent dependency problems
