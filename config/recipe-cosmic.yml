@@ -21,20 +21,18 @@ modules:
   - type: rpm-ostree
     repos:
       - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo
-      - https://repository.mullvad.net/rpm/stable/mullvad.repo
       - https://copr.fedorainfracloud.org/coprs/eclipseo/espanso/repo/fedora-%OS_VERSION%/eclipseo-espanso-fedora-%OS_VERSION%.repo
     install:
       - btrfs-assistant
       - cargo
-      - fish
       - espanso-wayland
+      - fish
       - git
       - grubby
       - kitty
       - micro
       - neovim
       - openssl-devel
-      - perl
       - rust
       - snapper
       - starship
