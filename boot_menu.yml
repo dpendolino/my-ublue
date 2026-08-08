@@ -5,10 +5,10 @@ ublue_variants:
     ks: /kickstart/ublue-os.ks
     flavors:
       - label: my-ublue
-  - label: dpendolino/my-ublue-sericea
+  - label: dpendolino/my-ublue-sway-atomic
     ks: /kickstart/ublue-os.ks
     flavors:
-      - label: my-ublue-sericea
+      - label: my-ublue-sway-atomic
   - label: dpendolino/my-ublue-silverblue
     ks: /kickstart/ublue-os.ks
     flavors:
