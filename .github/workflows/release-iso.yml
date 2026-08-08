@@ -1,3 +1,4 @@
+name: release-iso
 on:
   push:
     paths:
@@ -5,42 +6,74 @@ on:
       - ".github/workflows/release-iso.yml"
   workflow_dispatch:
 
-name: release-iso
+concurrency:
+  group: release-iso-${{ github.ref || github.run_id }}
+  cancel-in-progress: true
+
 jobs:
-  release-iso:
-    name: Generate and Release ISOs
-    runs-on: ubuntu-latest
+  prepare-release:
+    name: Prepare auto-iso Release
+    runs-on: ubuntu-24.04
     permissions:
       contents: write
-    container:
-      image: fedora:42
-      options: --privileged
+    steps:
+      - name: Ensure auto-iso release exists
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          OWNER="${{ github.repository_owner }}"
+          REPO="${{ github.event.repository.name }}"
+          if ! gh release view auto-iso -R "${OWNER}/${REPO}" >/dev/null 2>&1; then
+            gh release create auto-iso -t ISO -n "This is an automatically generated ISO release." -R "${OWNER}/${REPO}"
+          fi
+
+  build-iso:
+    name: Build ISO for ${{ matrix.image }}
+    runs-on: ubuntu-24.04
+    needs: prepare-release
+    permissions:
+      contents: write
+      packages: read
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - image: my-ublue
+            fedora_version: 44
+          - image: my-ublue-silverblue
+            fedora_version: 44
+          - image: my-ublue-cosmic
+            fedora_version: 42
+          - image: my-ublue-sway-atomic
+            fedora_version: 42
     steps:
       - uses: actions/checkout@v7
-      - name: Generate ISO
-        uses: ublue-os/isogenerator-old@v2.3.1
-        id: isogenerator
+
+      - name: Build ISO
+        uses: jasonn3/build-container-installer@v1.5.0
+        id: build
         with:
-          image-name: ${{ github.event.repository.name }}
-          installer-repo: releases
-          installer-major-version: 42
-          boot-menu-path: boot_menu.yml
-      - name: install github CLI
-        run: |
-          sudo dnf install 'dnf-command(config-manager)' -y
-          sudo dnf config-manager addrepo --from-repofile=https://cli.github.com/packages/rpm/gh-cli.repo
-          sudo dnf install gh -y
-      - name: Upload ISO
+          arch: x86_64
+          image_name: ${{ matrix.image }}
+          image_repo: ghcr.io/${{ github.repository_owner }}
+          image_tag: latest
+          version: ${{ matrix.fedora_version }}
+          # Kinoite variant required for user creation options in anaconda.
+          # Silverblue variant omits them, see ublue-os/cosmic build_iso.yml
+          variant: Kinoite
+          iso_name: ${{ matrix.image }}-${{ matrix.fedora_version }}.iso
+
+      - name: Upload ISO and Checksum
         env:
           GITHUB_TOKEN: ${{ github.token }}
+        shell: bash
         run: |
-          if gh release list -R ${{ github.repository_owner }}/${{ github.event.repository.name }} | grep "auto-iso"; then
-            gh release view auto-iso -R ${{ github.repository_owner }}/${{ github.event.repository.name }} --json assets -q .assets[].name | xargs --no-run-if-empty -L 1 gh release delete-asset auto-iso -R ${{ github.repository_owner }}/${{ github.event.repository.name }}
-            gh release upload auto-iso ${{ steps.isogenerator.outputs.iso-path }} -R ${{ github.repository_owner }}/${{ github.event.repository.name }} --clobber
-          else
-            gh release create auto-iso ${{ steps.isogenerator.outputs.iso-path }} -t ISO -n "This is an automatically generated ISO release." -R ${{ github.repository_owner }}/${{ github.event.repository.name }}
-          fi
-      - name: Upload SHA256SUM
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-        run: gh release upload auto-iso ${{ steps.isogenerator.outputs.sha256sum-path }} -R ${{ github.repository_owner }}/${{ github.event.repository.name }} --clobber
+          set -euo pipefail
+          OWNER="${{ github.repository_owner }}"
+          REPO="${{ github.event.repository.name }}"
+          ISO_DIR="${{ steps.build.outputs.iso_path }}"
+          ISO="${{ steps.build.outputs.iso_name }}"
+          gh release upload auto-iso "${ISO_DIR}/${ISO}" -R "${OWNER}/${REPO}" --clobber
+          gh release upload auto-iso "${ISO_DIR}/${ISO}-CHECKSUM" -R "${OWNER}/${REPO}" --clobber

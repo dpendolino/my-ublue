@@ -32,11 +32,11 @@ The `latest` tag will automatically point to the latest build. That build will s
 
 ## ISO
 
-This template includes a simple Github Action to build and release an ISO of your image.
+This template includes a simple Github Action to build and release an ISO for each image.
 
-To run the action, simply edit the `boot_menu.yml` by changing all the references to startingpoint to your repository. This should trigger the action automatically.
+To run the action, trigger it from the Actions tab or edit the `release-iso.yml` workflow. The workflow builds one netinstaller ISO per image via [build-container-installer](https://github.com/JasonN3/build-container-installer) and uploads them to the `auto-iso` release. The ISO is a netinstaller and should always pull the latest version of your image.
 
-The Action currently uses [ublue-os/isogenerator-old](https://github.com/ublue-os/isogenerator-old) and works in a similar manner to the official Universal Blue ISO. If you have any issues, you should first check [the documentation page on installation](https://universal-blue.org/installation/). The ISO is a netinstaller and should always pull the latest version of your image.
+If you have any issues, you should first check [the documentation page on installation](https://universal-blue.org/installation/).
 
 Note that this release-iso action is not a replacement for a full-blown release automation like [release-please](https://github.com/googleapis/release-please).
 
