@@ -27,6 +27,7 @@ modules:
       - cargo
       - espanso-wayland
       - fish
+      - git
       - gnome-shell-extension-pop-shell
       - go
       - grubby
@@ -35,6 +36,7 @@ modules:
       - neovim
       - openssl-devel
       - perl
+      - perl-Git
       - rust
       - snapper
       - starship
@@ -43,12 +45,6 @@ modules:
     # remove:
     #   - firefox # default firefox removed in favor of flatpak
     #   - firefox-langpacks # langpacks needs to also be removed to prevent dependency problems
-
-  - type: dnf
-    install:
-      packages:
-        - git
-      install-weak-deps: false
 
   - type: default-flatpaks
     configurations:
