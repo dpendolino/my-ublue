@@ -73,6 +73,12 @@ modules:
     include:
       - zz1-myoverride.gschema.override # test & compile the override file included in config/gschema-overrides/zz1-myoverride.gschema.override
 
+  # bluefin already ships this fontconfig symlink; remove it so the newer
+  # fonts module can create it without failing on "File exists".
+  - type: script
+    scripts:
+      - remove-nerd-font-symlink.sh
+
   - type: fonts
     fonts:
       nerd-fonts:
